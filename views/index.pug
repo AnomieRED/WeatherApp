@@ -4,12 +4,25 @@ html(lang="en")
       meta(charset="UTF-8")
       meta(http-equiv="X-UA-Compatible", content="IE=edge")
       meta(name="viewport", content="width=device-width, initial-scale=1.0")
-      link(rel="stylesheet", href="stylesheets/style.css")
+      link(rel="stylesheet", href="/stylesheets/style.css")
       script(src="app.js" async) 
       title Weather App
    body 
       .wrapper
-         h1 
-         label(for="weather") Enter your city
-         input(type="text", id="weather" placeholder="Enter your city")
-         button(class="weather-btn") Add
+         .weather-title
+            .weather-icons
+               img.icons(src="/icons/day-and-night.svg", alt="weather-earth")
+         form(action="/", method="post")
+            h1 Weather
+            p.weather-subtitle View the current weather in your city
+            label(for="weather") Enter your city
+            input(type="text" name="city" id="weather" placeholder="Enter your city" required)
+            button(type="submit" class="weather-btn") Get Weather
+         .api-result
+            if temp !== null
+            h2.temp= temp 
+               | цельсий   
+            .api-weather
+               if icon !== null
+               img.api-icons(src=`https://openweathermap.org/img/w/${icon}.png`, alt="api-icon")
+            p.city Paris   

@@ -1,0 +1,13 @@
+[core]
+   autocrlf = true
+   safecrlf = warn
+	quotepath = off
+[user]
+   name = Yurii (AnomieRED)
+   email = anomiemio@gmail.com
+[alias]
+   ck = checkout
+   cm = commit
+   st = status
+   br = branch
+   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short

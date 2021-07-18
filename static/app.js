@@ -1,17 +1,30 @@
-// "use strict"
-// const API_KEY = 'c594d603005aa6abb1a7c6108f287df5'
+"use strict"
 
-// const inputValue = document.querySelector('#weather').value;
-// console.log(inputValue)
-
-// let getRequest = async () => {
-//    const data = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=London&appid=${API_KEY}`);
-//    const jsonResponse = await data.json();
-
-//    console.log(jsonResponse);
+// let onSuccess = (position) => {
+//    let lat = position.coords.latitude;
+//    let lng = position.coords.longitude
+//    console.log(lat, lng)
 // }
 
+// let onError = (error) => {
+//    console.error(); (error)
+// }
 
+// function geolocation() {
+//    navigator.geolocation.getCurrentPosition(onSuccess, onError)
+// }
 
-// const btn = document.querySelector('.weather-btn');
-// btn.addEventListener('click', getRequest)
+function getLocal() {
+   try {
+      navigator.geolocation.getCurrentPosition(function (position) {
+         let lat = position.coords.latitude;
+         let lng = position.coords.longitude
+         console.log(lat, lng)
+      });
+   } catch (error) {
+      console.warn(error)
+   }
+}
+
+getLocal()
+

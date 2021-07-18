@@ -1,0 +1,49 @@
+- const farh = ' ℃'
+- const speed = ' meter/sec'
+- const deg = ' degrees'
+
+mixin informer(api__info)
+   .api-temp
+      if temp !== undefined
+         h2.temp= temp 
+            span.temp=api__info.temp__farg
+   .api-weather
+      if icon !== undefined
+         img(src=`https://openweathermap.org/img/w/${icon}.png`, alt="api-icon")
+      if des !== undefined 
+         .api-sky= des
+      if city !== undefined
+         .api-city= city
+   .api-wind 
+      if windSpeed !== undefined 
+         .api-speed= windSpeed
+            span.speed=api__info.wind__speed
+      if windDeg !== undefined
+         .api-deg= windDeg
+            span.deg=api__info.wind__deg
+
++informer({
+   temp__farg: farh,
+   wind__speed: speed,
+   wind__deg: deg
+})
+
+//- .api-temp
+//-    - const farh = ' F'
+//-    if temp !== undefined 
+//-       h2.temp= temp 
+//-          span=farh
+//- .api-weather
+//-    if icon !== undefined
+//-       img(src=`https://openweathermap.org/img/w/${icon}.png`, alt="api-icon")
+//-    unless des !== null 
+//-       .api-sky= des
+//- .api-wind
+//-    - const speed = ' meter/sec'
+//-    if windSpeed !== undefined 
+//-       .api-speed= windSpeed
+//-          span=speed 
+//-    - const deg = ' degrees'
+//-    if windDeg !== undefined
+//-       .api-deg= windDeg
+//-          span=deg

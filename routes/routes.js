@@ -1,10 +1,9 @@
 import Router from 'express';
-import { getCity, getLocation } from '../controllers/controllers.js'
+import Controllers from '../controllers/controllers.js'
 
 const router = new Router();
 
-router.get('/', getLocation);
-
-router.post('/', getCity);
+router.get('/', Controllers.getLocation);
+router.post('/', Controllers.getCity);
 
 export default router

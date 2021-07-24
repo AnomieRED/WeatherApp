@@ -5,18 +5,20 @@ html(lang="en")
       meta(http-equiv="X-UA-Compatible", content="IE=edge")
       meta(name="viewport", content="width=device-width, initial-scale=1.0")
       link(rel="stylesheet", href="/stylesheets/style.css")
-      script(src="app.js" async) 
+      script(src="app.js", type="module" async) 
       title Weather App
    body 
       .wrapper
          section.weather-box
+            img.geo__icons(src="/icons/placeholder.svg", alt="geo-icons")
+            .geolocation
+               p.location__text
             .weather-header
                .weather-icons
-                  img.icons(src="/icons/day-and-night.svg", alt="weather-earth")
-            form(action="/", method="post")
-               h1 Weather
+                  img.header-icons(src="/icons/day-and-night.svg", alt="weather-earth")
+            form.form(action="/", method="post")
+               h1.weather-title Weather
                p.weather-subtitle View the current weather in your city
-               label(for="weather") Enter your city
-               input(type="text" name="city" id="weather" placeholder="Enter your city" required)
-               button(type="submit" class="weather-btn") Get Weather
+               input.weather-input(type="text", name="city", id="weather", placeholder="Enter your city", required)
+               button.weather-btn(type="submit", class="weather-btn") Get Weather
             include ./includes/info

@@ -11,14 +11,17 @@ const app = express();
 
 app.set('view engine', 'pug');
 
-app.use(express.static('static'))
+app.use(express.static('static'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({ extended: true }));
 app.use('/', weatherRouter);
 
 async function mongoStart() {
 	try {
-		await mongoose.connect(DB_CONNECT, { useUnifiedTopology: true, useNewUrlParser: true })
+		await mongoose.connect(DB_CONNECT, {
+			useUnifiedTopology: true,
+			useNewUrlParser: true,
+		});
 		app.listen(PORT, () => {
 			console.log(`Server has been started on port ${PORT}... `);
 		});
